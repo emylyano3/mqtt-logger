@@ -1,0 +1,7 @@
+.classpath
+.project
+.settings/
+app.log
+mqtt-logger-app-tcp19216801011883/
+mqtt-messages.log
+target/
