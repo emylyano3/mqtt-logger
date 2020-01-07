@@ -9,7 +9,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 
 import com.proeza.mqttlogger.conf.CoreConf;
-import com.proeza.mqttlogger.parser.Payload2StringParser;
+import com.proeza.mqttlogger.parser.IMqttPayloadParser;
 import com.proeza.mqttlogger.persistence.StringLogger;
 
 public class MQTTLogger {
@@ -43,7 +43,7 @@ public class MQTTLogger {
 
 	class MessageListener implements IMqttMessageListener {
 		private StringLogger			persistence		= new StringLogger();
-		private Payload2StringParser	payloadParser	= new Payload2StringParser();
+		private IMqttPayloadParser<?>	payloadParser	= (IMqttPayloadParser<?>) MQTTLogger.this.coreConf.getPayloadParser();
 
 		@Override
 		public void messageArrived (String topic, MqttMessage message) throws Exception {
