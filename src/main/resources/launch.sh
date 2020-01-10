@@ -1,0 +1,1 @@
+java -cp /opt/mqtt-logger com.proeza.mqttlogger.Main -c /etc/mqtt-logger/mqtt-logger.conf
