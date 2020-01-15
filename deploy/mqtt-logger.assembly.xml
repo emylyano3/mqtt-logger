@@ -1,21 +1,48 @@
 <assembly
-    xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
-    <id>${project.version}</id>
-    <formats>
-        <format>zip</format>
-    </formats>
-    <includeBaseDirectory>false</includeBaseDirectory>
-    <dependencySets>
-        <dependencySet>
-            <useProjectArtifact>true</useProjectArtifact>
-            <unpack>true</unpack>
-            <unpackOptions>
-                <excludes>
-                    <exclude>**/log.*</exclude>
-                </excludes>
-            </unpackOptions>
-        </dependencySet>
-    </dependencySets>
+	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+	<id>${project.version}</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<files>
+        <file>
+            <source>${conf.file}</source>
+            <destName>conf/core-conf.properties</destName>
+        </file>
+        <file>
+            <source>${install.file}</source>
+            <destName>${install.file}</destName>
+        </file>
+        <file>
+            <source>${launch.file}</source>
+            <destName>${launch.file}</destName>
+        </file>
+        <file>
+            <source>${service.file}</source>
+            <destName>${service.file}</destName>
+        </file>
+    </files>
+	<dependencySets>
+		<dependencySet>
+			<useProjectArtifact>true</useProjectArtifact>
+			<unpack>true</unpack>
+			<unpackOptions>
+				<excludes>
+					<exclude>**/log.*</exclude>
+					<exclude>about.html</exclude>
+					<exclude>XMLPULL_1_1_3_1_VERSION</exclude>
+					<exclude>XPP3_1.1.4c_MIN_VERSION</exclude>
+				</excludes>
+<!-- 				<includes> -->
+<!-- 					<target>conf/core-conf-win.properties</target> -->
+<!-- 					<include>${install.file}</include> -->
+<!-- 					<include>${launch.file}</include> -->
+<!-- 					<include>${service.file}</include> -->
+<!-- 				</includes> -->
+			</unpackOptions>
+		</dependencySet>
+	</dependencySets>
 </assembly>

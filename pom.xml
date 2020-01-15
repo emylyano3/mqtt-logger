@@ -10,6 +10,29 @@
 	<properties>
 		<java-version>1.8</java-version>
 	</properties>
+	<profiles>
+        <profile>
+            <id>windows</id>
+            <properties>
+                <conf.file>conf/core-conf-win.properties</conf.file>
+                <install.file>bin/install.cmd</install.file>
+                <launch.file>bin/launch.cmd</launch.file>
+                <service.file></service.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>linux</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <conf.file>conf/core-conf-linux.properties</conf.file>
+                <install.file>bin/install.sh</install.file>
+                <launch.file>bin/launch.sh</launch.file>
+                <service.file>bin/mqtt-logger.service</service.file>
+            </properties>
+        </profile>
+	</profiles>
 	<build>
 		<plugins>
 			<plugin>
