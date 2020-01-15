@@ -22,7 +22,9 @@ public class Main {
 			try {
 				logger.connect();
 				logger.subscribe();
-				while (true) {}
+				while (true) {
+					Thread.sleep(100);
+				}
 			} catch (Exception e) {
 				System.err.println(e);
 				System.exit(1);

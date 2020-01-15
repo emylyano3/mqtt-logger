@@ -31,11 +31,11 @@ public class Payload2SimpleLogParser implements IMqttPayloadParser<String> {
 		return builder.toString().trim();
 	}
 
-	private int getChunkSize (String chunk) {
+	private short getChunkSize (String chunk) {
 		if (SIZE_WILDCARD.equals(chunk)) {
-			return Integer.SIZE;
+			return Short.SIZE;
 		} else {
-			return Integer.parseInt(chunk);
+			return Short.parseShort(chunk);
 		}
 	}
 }

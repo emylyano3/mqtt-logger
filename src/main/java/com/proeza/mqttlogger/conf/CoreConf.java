@@ -29,6 +29,7 @@ public class CoreConf extends AbstractPropertiesConfiguration {
 	public static final String		CONNECTION_TO			= "conf.connection.timeout";
 	public static final String		CLEAN_SESSION			= "conf.connection.cleansession";
 	public static final String		AUTO_RECONNECT			= "conf.connection.autoreconnect";
+	public static final String		CONNECTION_RETRIES		= "conf.connection.retries";
 	public static final String		BROKER_HOST				= "conf.broker.host";
 	public static final String		BROKER_PORT				= "conf.broker.port";
 
@@ -73,6 +74,9 @@ public class CoreConf extends AbstractPropertiesConfiguration {
 
 	@Property(name = AUTO_RECONNECT)
 	private Boolean					automaticReconnect		= true;
+
+	@Property(name = CONNECTION_RETRIES)
+	private int						connectionRetries;
 
 	public static CoreConf getInstance () {
 		return instance;
@@ -125,6 +129,14 @@ public class CoreConf extends AbstractPropertiesConfiguration {
 		return this.automaticReconnect;
 	}
 
+	public int getConnectionRetries () {
+		return this.connectionRetries;
+	}
+
+	public void setConnectionRetries (int connectionRetries) {
+		this.connectionRetries = connectionRetries;
+	}
+
 	public String getPayloadFormat () {
 		return this.payloadFormat;
 	}
@@ -147,6 +159,22 @@ public class CoreConf extends AbstractPropertiesConfiguration {
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 			return new Payload2StringParser();
 		}
+	}
+
+	public String getBrokerHost () {
+		return this.brokerHost;
+	}
+
+	public void setBrokerHost (String brokerHost) {
+		this.brokerHost = brokerHost;
+	}
+
+	public String getBrokerPort () {
+		return this.brokerPort;
+	}
+
+	public void setBrokerPort (String brokerPort) {
+		this.brokerPort = brokerPort;
 	}
 
 	public String getClientID () {
