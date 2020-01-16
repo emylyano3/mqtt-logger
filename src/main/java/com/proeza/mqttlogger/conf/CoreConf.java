@@ -114,7 +114,9 @@ public class CoreConf extends AbstractPropertiesConfiguration {
 	@Override
 	protected void postInject (Properties loaded) {
 		log.info("Config loaded");
-		loaded.list(System.out);
+		for (Object key : loaded.keySet()) {
+			log.info(String.format("%s=%s", key, loaded.get(key)));
+		}
 	}
 
 	public List<String> getLogTopics () {
