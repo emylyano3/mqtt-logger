@@ -1,0 +1,1 @@
+call java -cp . ${app.main.class} -c ${dest.conf.file}

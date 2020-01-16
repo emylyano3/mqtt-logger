@@ -4,25 +4,29 @@
 	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
 	<id>${project.version}</id>
 	<formats>
-		<format>zip</format>
+		<format>dir</format>
 	</formats>
 	<includeBaseDirectory>false</includeBaseDirectory>
 	<files>
         <file>
             <source>${conf.file}</source>
-            <destName>conf/core-conf.properties</destName>
+            <destName>${dest.conf.file}</destName>
+            <filtered>true</filtered>
         </file>
         <file>
             <source>${install.file}</source>
-            <destName>${install.file}</destName>
+            <destName>${dest.install.file}</destName>
+            <filtered>true</filtered>
         </file>
         <file>
             <source>${launch.file}</source>
-            <destName>${launch.file}</destName>
+            <destName>${dest.launch.file}</destName>
+            <filtered>true</filtered>
         </file>
         <file>
             <source>${service.file}</source>
-            <destName>${service.file}</destName>
+            <destName>${dest.service.file}</destName>
+            <filtered>true</filtered>
         </file>
     </files>
 	<dependencySets>
